@@ -1,21 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
+import { Paragraph } from "./Statistics.styles";
 
-export class Statistics extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
-
-  render() {
-    const [good, neutral, bad] = Object.keys(this.state);
-    return (
-      <>
-        <h1>Please leave feedback</h1>
-        <button type="button">{good}</button>
-        <button type="button">{neutral}</button>
-        <button type="button">{bad}</button>
-      </>
-    );
-  }
-}
+export const Statistics = (props) => {
+  const { good, neutral, bad, total, positivePercentage } = props;
+  return (
+    <>
+      <Paragraph>
+        {Object.keys(props)[0]}: {good}
+      </Paragraph>
+      <Paragraph>
+        {Object.keys(props)[1]}: {neutral}
+      </Paragraph>
+      <Paragraph>
+        {Object.keys(props)[2]}: {bad}
+      </Paragraph>
+      <Paragraph>Total: {total}</Paragraph>
+      <Paragraph>
+        Positive feedback: {positivePercentage ? `${positivePercentage}%` : 0}
+      </Paragraph>
+    </>
+  );
+};
