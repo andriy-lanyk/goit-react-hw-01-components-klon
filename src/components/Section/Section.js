@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export const Section = (props) => {
+const Section = (props) => {
   return (
     <section>
       <h2>{props.title}</h2>
@@ -8,3 +9,9 @@ export const Section = (props) => {
     </section>
   );
 };
+
+Section.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
+export default Section;
